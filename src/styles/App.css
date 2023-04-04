@@ -9,6 +9,10 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
 }
 
+.container {
+  background-color: #f5f5f5;
+}
+
 .home {
   width: 70%;
   display: flex;
@@ -189,15 +193,104 @@ input:checked + .slider:before {
 }
 
 .dashboard {
+  display: flex;
   min-height: 100vh;
   background-color: rgb(237, 237, 237);
+  margin: 0 20px;
+}
+.dashboard__left {
+  width: 70%;
+  display: flex;
+  position: relative;
+  top: 100px;
+  flex-direction: column;
+  row-gap: 20px;
+  background-color: #f5f5f5;
+  padding: 30px;
+}
+.dashboard__bottom {
+  width: 100%;
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.dashboard__recent {
+  width: 50%;
+  font-size: 2.6rem;
+}
+.dashboard__allact {
+  width: 50%;
+}
+.dashboard__right {
+  width: 30%;
+  position: relative;
+  top: 100px;
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  background-color: #f5f5f5;
+  padding: 30px 0;
+}
+.dashboard__right__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background-color: #f5f5f5;
+  color: #FF7418;
+  border: 1px solid rgb(225, 223, 223);
+  padding: 20px;
+}
+.dashboard__right__title__text {
+  background-color: white;
+  font-size: 2rem;
+  line-height: 1.6;
+  padding: 20px;
+  border: 1px solid rgb(247, 247, 247);
+}
+
+.recentquest, .allact, .latestnews {
+  width: 100%;
+  font-size: 2.6rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.recentquest__title, .allact__title, .latestnews__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background-color: #f5f5f5;
+  color: #FF7418;
+  border: 1px solid rgb(225, 223, 223);
+  padding: 20px;
+}
+.recentquest__text, .allact__text, .latestnews__text {
+  background-color: white;
+  font-size: 2rem;
+  line-height: 1.6;
+  padding: 20px;
+  border: 1px solid rgb(247, 247, 247);
+}
+.recentquest__text--title, .allact__text--title, .latestnews__text--title {
+  font-size: 2rem;
+}
+.recentquest__text--date, .allact__text--date, .latestnews__text--date {
+  padding: 20px 0;
+}
+.recentquest__text--post, .allact__text--post, .latestnews__text--post {
+  font-size: 1.4rem;
+}
+.recentquest__link, .allact__link, .latestnews__link {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+.recentquest__a, .allact__a, .latestnews__a {
+  font-size: 1.6rem;
+  color: #FF7418;
 }
 
 .diagram {
-  width: 100rem;
+  width: 100%;
   background-color: #421F3C;
   color: #ffffff;
-  position: relative;
   top: 100px;
   left: 30px;
   display: flex;
