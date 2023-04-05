@@ -5,6 +5,10 @@
   font-size: 62.5%;
 }
 
+html {
+  background-color: #421F3C;
+}
+
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
 }
@@ -218,6 +222,9 @@ input:checked + .slider:before {
   width: 50%;
   font-size: 2.6rem;
 }
+.dashboard__contacts {
+  width: 50%;
+}
 .dashboard__allact {
   width: 50%;
 }
@@ -225,7 +232,6 @@ input:checked + .slider:before {
   width: 30%;
   position: relative;
   top: 100px;
-  background-color: aqua;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -248,12 +254,18 @@ input:checked + .slider:before {
   border: 1px solid rgb(247, 247, 247);
 }
 
-.recentquest, .allact, .latestnews {
+.recentquest,
+.allact,
+.latestnews,
+.recentcontacts {
   width: 100%;
   font-size: 2.6rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.recentquest__title, .allact__title, .latestnews__title {
+.recentquest__title,
+.allact__title,
+.latestnews__title,
+.recentcontacts__title {
   font-size: 1.8rem;
   font-weight: 700;
   background-color: #f5f5f5;
@@ -261,28 +273,46 @@ input:checked + .slider:before {
   border: 1px solid rgb(225, 223, 223);
   padding: 20px;
 }
-.recentquest__text, .allact__text, .latestnews__text {
+.recentquest__text,
+.allact__text,
+.latestnews__text,
+.recentcontacts__text {
   background-color: white;
   font-size: 2rem;
   line-height: 1.6;
   padding: 20px;
   border: 1px solid rgb(247, 247, 247);
 }
-.recentquest__text--title, .allact__text--title, .latestnews__text--title {
+.recentquest__text--title,
+.allact__text--title,
+.latestnews__text--title,
+.recentcontacts__text--title {
   font-size: 2rem;
 }
-.recentquest__text--date, .allact__text--date, .latestnews__text--date {
+.recentquest__text--date,
+.allact__text--date,
+.latestnews__text--date,
+.recentcontacts__text--date {
   padding: 20px 0;
 }
-.recentquest__text--post, .allact__text--post, .latestnews__text--post {
+.recentquest__text--post,
+.allact__text--post,
+.latestnews__text--post,
+.recentcontacts__text--post {
   font-size: 1.4rem;
 }
-.recentquest__link, .allact__link, .latestnews__link {
+.recentquest__link,
+.allact__link,
+.latestnews__link,
+.recentcontacts__link {
   display: flex;
   justify-content: flex-end;
   padding: 20px;
 }
-.recentquest__a, .allact__a, .latestnews__a {
+.recentquest__a,
+.allact__a,
+.latestnews__a,
+.recentcontacts__a {
   font-size: 1.6rem;
   color: #FF7418;
 }
@@ -314,6 +344,191 @@ input:checked + .slider:before {
 .diagram__box--1 {
   background-color: #ffffff;
   padding: 20px;
+}
+
+.allquestionnaires__crudmenu {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 100px;
+  padding: 40px;
+}
+.allquestionnaires__select {
+  width: 220px;
+  height: 40px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 0 10px;
+}
+
+.questionnaires__buttons {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.questionnaires__button--1 {
+  background-color: #FF7418;
+  color: white;
+  font-size: 1.8rem;
+  border: 1px solid #FF7418;
+  padding: 10px 40px;
+}
+.questionnaires__button--2 {
+  font-size: 1.8rem;
+  border: 1px solid #2e2e2e;
+  padding: 9px 40px;
+}
+.questionnaires__button--3 {
+  background-color: #2e2e2e;
+  color: white;
+  font-size: 1.8rem;
+  padding: 9px 40px;
+  border: 1px solid #2e2e2e;
+}
+.questionnaires__input {
+  height: 4.2rem;
+  font-size: 1.8rem;
+  width: 200px;
+  padding: 10px;
+}
+.questionnaires__data {
+  background-color: #f5f5f5;
+  position: relative;
+  top: 100px;
+  padding: 20px 40px;
+}
+.questionnaires__table {
+  width: 100%;
+  font-size: 6rem;
+  font-weight: 300;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0);
+}
+.questionnaires__td, .questionnaires__th {
+  text-align: left;
+  padding: 20px 30px;
+}
+.questionnaires__td--1, .questionnaires__th--1 {
+  width: 1%;
+  padding-left: 20px;
+}
+.questionnaires__td--2, .questionnaires__th--2 {
+  width: 40%;
+  font-size: 2rem;
+  text-align: left;
+  padding-left: 20px;
+}
+.questionnaires__td--5, .questionnaires__th--5 {
+  font-size: 3rem;
+  text-align: left;
+  padding-left: 20px;
+}
+.questionnaires__td--7, .questionnaires__th--7 {
+  font-size: 3rem;
+  text-align: center;
+}
+.questionnaires__bottom {
+  font-size: 2rem;
+  text-align: right;
+  padding: 20px;
+}
+
+.newquestionnaire__tabs {
+  background-color: white;
+  position: relative;
+  top: 100px;
+  font-size: 6rem;
+}
+.newquestionnaire__tabs--questions {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+}
+.newquestionnaire__tabs--left {
+  width: 25%;
+  font-size: 10rem;
+}
+.newquestionnaire__tabs--right {
+  width: 75%;
+  font-size: 10rem;
+  padding: 0 20px;
+}
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+}
+.react-tabs__tab-list {
+  height: 53px;
+  border-bottom: 1px solid #aaa;
+  margin: 0 0 0;
+  padding-left: 20px;
+}
+.react-tabs__tab {
+  background-color: #8f7c8c;
+  color: white;
+  height: 45px;
+  display: inline-block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 10px 20px 15px 20px;
+  margin: 2px;
+  cursor: pointer;
+}
+.react-tabs__tab--selected {
+  background: #fff;
+  border-color: #aaa;
+  color: black;
+}
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+.react-tabs__tab:focus {
+  outline: none;
+}
+.react-tabs__tab:focus:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  left: -4px;
+  right: -4px;
+  bottom: -5px;
+  background: #fff;
+}
+.react-tabs__tab:nth-child(5) {
+  margin-left: 20px;
+}
+.react-tabs__tab-panel {
+  display: none;
+}
+.react-tabs__tab-panel--selected {
+  display: flex;
+}
+
+.accordion__firsttab {
+  display: flex;
+  gap: 50px;
+  font-size: 4rem;
+  padding: 0 20px 0 20px;
+}
+
+.accordion__left--h4,
+.accordion__right--h4 {
+  font-weight: 800;
+  padding-bottom: 15px;
+}
+.accordion__left--p,
+.accordion__right--p {
+  padding-bottom: 10px;
+}
+.accordion__left--input,
+.accordion__right--input {
+  max-width: 100%;
+  height: 35px;
+  margin: 20px 2px;
 }
 
 @media screen and (min-width: 300px) {

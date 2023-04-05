@@ -4,6 +4,8 @@ import Login from "./components/Login";
 import Reminder from "./components/Reminder";
 import Dashboard from "./pages/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AllQuestionnaires from "./components/AllQuestionnaires";
+import NewQuestionnaire from "./components/NewQuestionnaire";
 import "./styles/App.scss";
 
 function App() {
@@ -16,6 +18,9 @@ function App() {
           <Route exact path="/Login" element={<Login />}></Route>
           <Route exact path="/Reminder" element={<Reminder />}></Route>
           <Route exact path="/Dashboard" element={<Dashboard />}></Route>
+          <Route exact path="/AllQuestionnaires" element={<AllQuestionnaires />}></Route>
+          <Route exact path="/Newquestionnaire" element={<NewQuestionnaire />}></Route>
+
         </Routes>
       </BrowserRouter>
     </div>
