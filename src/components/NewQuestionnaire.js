@@ -7,6 +7,7 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from "react-accessible-accordion";
+import { Link } from "react-router-dom";
 
 // Demo styles, see 'Styles' section below for some notes on use.
 import "react-accessible-accordion/dist/fancy-example.css";
@@ -47,7 +48,14 @@ const NewQuestionnaire = () => {
                 </AccordionItem>
                 <AccordionItem>
                   <AccordionItemHeading>
-                    <AccordionItemButton>Text choice</AccordionItemButton>
+                    <AccordionItemButton className="newquestionnaire__button">
+                      <div className="newquestionnaire__item">Text choice</div>
+                      <div>
+                        <Link to="/" className="newquestionnaire__link">
+                          Add
+                        </Link>
+                      </div>
+                    </AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>
                     <p>
@@ -119,7 +127,12 @@ const NewQuestionnaire = () => {
                 </AccordionItem>
                 <AccordionItem>
                   <AccordionItemHeading>
-                    <AccordionItemButton>Text choice</AccordionItemButton>
+                    <AccordionItemButton>
+                      Text choice
+                      <span>
+                        <Link to="/">Add</Link>
+                      </span>
+                    </AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>
                     <p>
@@ -154,7 +167,9 @@ const NewQuestionnaire = () => {
                   <AccordionItemPanel>
                     <div className="accordion__firsttab">
                       <div className="accordion__left">
-                        <h4 className="accordion__left--h4">Questionnaire title</h4>
+                        <h4 className="accordion__left--h4">
+                          Questionnaire title
+                        </h4>
                         <p className="accordion__left--p">
                           When your questionnaire displays in a browser, this
                           title will be used as a title in the browser tab
@@ -162,14 +177,19 @@ const NewQuestionnaire = () => {
                         <input type="text" className="accordion__left--input" />
                       </div>
                       <div className="accordion__right">
-                        <h4 className="accordion__right--h4">Questionnaire link</h4>
+                        <h4 className="accordion__right--h4">
+                          Questionnaire link
+                        </h4>
                         <p className="accordion__righ--p">
                           The link suffix (max. 20 characters) is a unique
                           identifier to your questionnaire's weblink
                         </p>
                         <p>
                           https://s.pointerpro.com/
-                          <input type="text" className="accordion__right--input"></input>
+                          <input
+                            type="text"
+                            className="accordion__right--input"
+                          ></input>
                         </p>
                       </div>
                     </div>
@@ -177,9 +197,7 @@ const NewQuestionnaire = () => {
                 </AccordionItem>
                 <AccordionItem>
                   <AccordionItemHeading>
-                    <AccordionItemButton>
-                      Is free will real or just an illusion?
-                    </AccordionItemButton>
+                    <AccordionItemButton>Intro screen</AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>
                     <p>

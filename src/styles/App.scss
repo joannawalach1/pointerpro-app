@@ -464,6 +464,22 @@ input:checked + .slider:before {
       padding: 0 20px;
     }
   }
+  &__link {
+    max-width: 30%;
+    color: $main-color;
+    display: inline-flex;
+    flex-direction: column;
+  }
+  &__item {
+    max-width: 30%;
+
+    text-align: right;
+  }
+  &__button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 
 .react-tabs {

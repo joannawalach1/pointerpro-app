@@ -453,6 +453,21 @@ input:checked + .slider:before {
   font-size: 10rem;
   padding: 0 20px;
 }
+.newquestionnaire__link {
+  max-width: 30%;
+  color: #FF7418;
+  display: inline-flex;
+  flex-direction: column;
+}
+.newquestionnaire__item {
+  max-width: 30%;
+  text-align: right;
+}
+.newquestionnaire__button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .react-tabs {
   -webkit-tap-highlight-color: transparent;
