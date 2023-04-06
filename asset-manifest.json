@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/joannawalach1/pointerpro-app/static/css/main.4e5f2cd8.css",
+    "main.js": "/joannawalach1/pointerpro-app/static/js/main.64ef37bf.js",
+    "static/media/main.png": "/joannawalach1/pointerpro-app/static/media/main.efd7a45d9ff19d3dbb65.png",
+    "static/media/pointerpro_logo.svg": "/joannawalach1/pointerpro-app/static/media/pointerpro_logo.fe96b3e0475dc6cd0fd00e72b8d0a08c.svg",
+    "index.html": "/joannawalach1/pointerpro-app/index.html",
+    "main.4e5f2cd8.css.map": "/joannawalach1/pointerpro-app/static/css/main.4e5f2cd8.css.map",
+    "main.64ef37bf.js.map": "/joannawalach1/pointerpro-app/static/js/main.64ef37bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e5f2cd8.css",
+    "static/js/main.64ef37bf.js"
+  ]
+}
