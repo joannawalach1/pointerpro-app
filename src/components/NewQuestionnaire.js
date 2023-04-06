@@ -8,8 +8,6 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import { Link } from "react-router-dom";
-
-// Demo styles, see 'Styles' section below for some notes on use.
 import "react-accessible-accordion/dist/fancy-example.css";
 import "react-tabs/style/react-tabs.css";
 import Navbar from "./Navbar";
