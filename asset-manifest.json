@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/joannawalach1/pointerpro-app/static/css/main.4e5f2cd8.css",
-    "main.js": "/joannawalach1/pointerpro-app/static/js/main.64ef37bf.js",
-    "static/media/main.png": "/joannawalach1/pointerpro-app/static/media/main.efd7a45d9ff19d3dbb65.png",
-    "static/media/pointerpro_logo.svg": "/joannawalach1/pointerpro-app/static/media/pointerpro_logo.fe96b3e0475dc6cd0fd00e72b8d0a08c.svg",
-    "index.html": "/joannawalach1/pointerpro-app/index.html",
-    "main.4e5f2cd8.css.map": "/joannawalach1/pointerpro-app/static/css/main.4e5f2cd8.css.map",
-    "main.64ef37bf.js.map": "/joannawalach1/pointerpro-app/static/js/main.64ef37bf.js.map"
+    "main.css": "/static/css/main.390a2d66.css",
+    "main.js": "/static/js/main.0fc1cf35.js",
+    "static/media/main.png": "/static/media/main.efd7a45d9ff19d3dbb65.png",
+    "static/media/pointerpro_logo.svg": "/static/media/pointerpro_logo.fe96b3e0475dc6cd0fd00e72b8d0a08c.svg",
+    "index.html": "/index.html",
+    "main.390a2d66.css.map": "/static/css/main.390a2d66.css.map",
+    "main.0fc1cf35.js.map": "/static/js/main.0fc1cf35.js.map"
   },
   "entrypoints": [
-    "static/css/main.4e5f2cd8.css",
-    "static/js/main.64ef37bf.js"
+    "static/css/main.390a2d66.css",
+    "static/js/main.0fc1cf35.js"
   ]
 }
