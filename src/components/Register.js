@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import { Formik, Field } from "formik";
+import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import Logo from "../assets/pointerpro_logo.svg";
 
+const RegisterSchema = Yup.object().shape({
+  username: Yup.string()
+    .min(2, "Username must be at least 2 characters")
+    .max(50, "Email must be max 50 characters!!")
+    .required("Username is a required field"),
+  email: Yup.string()
+    .email("Invalid email format")
+    .min(2, "Email must be at least 2 characters!")
+    .max(50, "Email must be max 50 characters!!")
+    .required("Required"),
+  password: Yup.string().required("Required"),
+});
 
 const Register = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+ const handleChange = (e) => {
+    setUsername(e.target.value);
+    setEmail(e.target.value);
+    setPassword(e.target.value);
+  }
+ 
   return (
     <section className="home">
       <div className="home__form">
@@ -13,46 +36,94 @@ const Register = () => {
             Please create an account first to sign up for your trial of the
             professional plan
           </p>
-          <label htmlFor="name" className="home__form--text2">
-            First name
-          </label>
-          <input
-            type="text"
-            name="name"
-            className="home__form--input"
-            placeholder="John"
-          />
-          <label htmlFor="email" className="home__form--text2">
-            Email address
-          </label>
-          <input
-            type="email"
-            name="email"
-            className="home__form--input"
-            placeholder="joanna.walach@op.pl"
-          />
-          <label htmlFor="password" className="home__form--text2">
-            Password
-          </label>
-          <input
-            type="password"
-            className="home__form--input"
-            name="password"
-          />
-          <p className="home__form--checkbox">
-            I accept the
-            <Link to="/" className="home__form--href">
-              Terms of Use
-            </Link>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </p>
+          <Formik
+            initialValues={{
+              username: "",
+              email: "",
+              password: "",
+            }}
+            validationSchema={RegisterSchema}
+            onSubmit={(values) => {
+              alert(JSON.strginify(values));
+            }}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleSubmit,
+              handleBlur,
+            }) => (
+              <form noValidate onSubmit={handleSubmit}>
+                <label htmlFor="name" className="home__form--text2">
+                  First name
+                </label>
+                <Field
+                  className="home__form--input"
+                  type="text"
+                  id="username"
+                  name="username"
+                  autoComplete="off"
+                  value={values.username}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  required
+                  placeholder="Username"
+                />
+                <p>{errors.username && touched.username && errors.username}</p>
+                <label htmlFor="email" className="home__form--text2">
+                  Email address
+                </label>
+                <Field
+                  className="home__form--input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  autoComplete="off"
+                  required
+                  placeholder="email"
+                />
+                <p>{errors.email && touched.email && errors.email}</p>
+                <label htmlFor="password" className="home__form--text2">
+                  Password
+                </label>
+                <Field
+                  className="home__form--input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={values.password}
+                  autoComplete="off"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  required
+                  placeholder="password"
+                />
+                <p className="error">
+                  {errors.password && touched.passsword && errors.password}
+                </p>
+                <p className="home__form--checkbox">
+                  I accept the
+                  <Link to="/" className="home__form--href">
+                    Terms of Use
+                  </Link>
+                  <label className="switch">
+                    <input type="checkbox" />
+                    <span className="slider round"></span>
+                  </label>
+                </p>
 
-          <button type="submit" className="home__button">
-            Create my account
-          </button>
+                <button type="submit" className="home__button">
+                  Create my account
+                </button>
+              </form>
+            )}
+          </Formik>
+          {username}, {email}, {password}
           <p>
             Already a member?
             <Link to="/Login" className="home__form--href">
@@ -62,7 +133,7 @@ const Register = () => {
         </div>
         <Link to="/" className="home__form--href">
           Get Help
-       </Link>
+        </Link>
       </div>
       <div className="home__banner">
         <div className="home__banner--wrapper">
