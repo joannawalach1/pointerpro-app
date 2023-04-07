@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const AllActivities = () => {
   return (
@@ -12,4 +12,4 @@ const AllActivities = () => {
   )
 }
 
-export default AllActivities
+export default AllActivities;
