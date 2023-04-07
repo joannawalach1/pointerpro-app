@@ -1,7 +1,7 @@
 {
   "name": "pointerpro-app",
   "version": "0.1.0",
-  "homepage": "https://joannawalach1.github.io/pointerpro-app/",
+  "homepage": "https://joannawalach1.github.io/pointerpro-app",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
