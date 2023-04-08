@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Formik, Field } from "formik";
+import { Formik, Field, ErrorMessage} from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import Logo from "../assets/pointerpro_logo.svg";
@@ -7,26 +7,25 @@ import Logo from "../assets/pointerpro_logo.svg";
 const RegisterSchema = Yup.object().shape({
   username: Yup.string()
     .min(2, "Username must be at least 2 characters")
-    .max(50, "Email must be max 50 characters!!")
+    .max(50, "Username must be max 50 characters!!")
     .required("Username is a required field"),
   email: Yup.string()
     .email("Invalid email format")
     .min(2, "Email must be at least 2 characters!")
     .max(50, "Email must be max 50 characters!!")
-    .required("Required"),
-  password: Yup.string().required("Required"),
+    .required("Email is a required field"),
+  password: Yup.string().required("Password is a required field"),
 });
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- const handleChange = (e) => {
-    setUsername(e.target.value);
-    setEmail(e.target.value);
-    setPassword(e.target.value);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
   }
- 
+
   return (
     <section className="home">
       <div className="home__form">
@@ -44,17 +43,9 @@ const Register = () => {
             }}
             validationSchema={RegisterSchema}
             onSubmit={(values) => {
-              alert(JSON.strginify(values));
+              alert(JSON.stringify(values));
             }}
           >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleSubmit,
-              handleBlur,
-            }) => (
               <form noValidate onSubmit={handleSubmit}>
                 <label htmlFor="name" className="home__form--text2">
                   First name
@@ -65,13 +56,12 @@ const Register = () => {
                   id="username"
                   name="username"
                   autoComplete="off"
-                  value={values.username}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
+                  value={username}
+                  onChange={(e)=>setUsername(e.target.value)}
                   required
                   placeholder="Username"
                 />
-                <p>{errors.username && touched.username && errors.username}</p>
+               <ErrorMessage name="username" />
                 <label htmlFor="email" className="home__form--text2">
                   Email address
                 </label>
@@ -80,14 +70,13 @@ const Register = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
+                  value={email}
+                  onChange={(e)=>setEmail(e.target.value)}
                   autoComplete="off"
                   required
                   placeholder="email"
                 />
-                <p>{errors.email && touched.email && errors.email}</p>
+              <ErrorMessage name="email" />
                 <label htmlFor="password" className="home__form--text2">
                   Password
                 </label>
@@ -96,16 +85,13 @@ const Register = () => {
                   type="password"
                   id="password"
                   name="password"
-                  value={values.password}
+                  value={password}
                   autoComplete="off"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
+                  onChange={(e)=>setPassword(e.target.value)}
                   required
                   placeholder="password"
                 />
-                <p className="error">
-                  {errors.password && touched.passsword && errors.password}
-                </p>
+              <ErrorMessage name="password" />
                 <p className="home__form--checkbox">
                   I accept the
                   <Link to="/" className="home__form--href">
@@ -117,11 +103,10 @@ const Register = () => {
                   </label>
                 </p>
 
-                <button type="submit" className="home__button">
+                <button type="submit" className="home__button" disabled>
                   Create my account
                 </button>
               </form>
-            )}
           </Formik>
           {username}, {email}, {password}
           <p>
