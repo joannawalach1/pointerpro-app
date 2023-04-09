@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-  background-color: #f5f5f5;
+  background-color: #421F3C;
 }
 
 .home {
@@ -60,6 +60,9 @@ body {
   font-size: 1.7rem;
   padding: 0 0.5rem;
 }
+.home__form--icon {
+  font-size: 2rem;
+}
 .home__banner {
   width: 50%;
   background-color: #FF7418;
@@ -98,6 +101,9 @@ body {
   border: 0;
   margin: 20px 0;
   padding: 15px 30px;
+}
+.home__button:disabled, .home__button[disabled] {
+  background-color: grey;
 }
 
 .switch {
@@ -544,6 +550,53 @@ input:checked + .slider:before {
   max-width: 100%;
   height: 35px;
   margin: 20px 2px;
+}
+
+.instructions {
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  background-color: rgb(241, 241, 241);
+  color: black;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  font-size: 2rem;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  font-size: 2rem;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: red;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
 }
 
 @media screen and (min-width: 300px) {
