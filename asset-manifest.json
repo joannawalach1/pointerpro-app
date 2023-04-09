@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pointerpro-app/static/css/main.f4dfb70d.css",
-    "main.js": "/pointerpro-app/static/js/main.20c6fac7.js",
+    "main.css": "/pointerpro-app/static/css/main.0112793f.css",
+    "main.js": "/pointerpro-app/static/js/main.cebade4d.js",
     "static/media/main.png": "/pointerpro-app/static/media/main.efd7a45d9ff19d3dbb65.png",
     "static/media/pointerpro_logo.svg": "/pointerpro-app/static/media/pointerpro_logo.fe96b3e0475dc6cd0fd00e72b8d0a08c.svg",
     "index.html": "/pointerpro-app/index.html",
-    "main.f4dfb70d.css.map": "/pointerpro-app/static/css/main.f4dfb70d.css.map",
-    "main.20c6fac7.js.map": "/pointerpro-app/static/js/main.20c6fac7.js.map"
+    "main.0112793f.css.map": "/pointerpro-app/static/css/main.0112793f.css.map",
+    "main.cebade4d.js.map": "/pointerpro-app/static/js/main.cebade4d.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4dfb70d.css",
-    "static/js/main.20c6fac7.js"
+    "static/css/main.0112793f.css",
+    "static/js/main.cebade4d.js"
   ]
 }
