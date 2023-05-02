@@ -64,7 +64,7 @@ const Register = () => {
   }, [username, password, email, matchPassword]);
 
     useEffect(() => {
-      fetch(`http://127.0.0.1:8000/registration`)
+      fetch(`http://127.0.0.1:8000/api/user`)
        .then((response) => console.log(response));
      }, []);
 

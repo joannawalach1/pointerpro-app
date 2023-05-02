@@ -5,9 +5,8 @@ import App from "./app";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Router base="/">
-      <App />
-    </Router>
-  </React.StrictMode>
-);
+  <StrictMode>
+      <Main />
+  </StrictMode>
+);   
+;
