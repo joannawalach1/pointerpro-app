@@ -4,41 +4,37 @@ import { Link} from "react-router-dom";
 import axios from "../api/Axios";
 import Logo from "../images/pointerpro_logo.svg";
 
-const LOGGED_URL = "/authentification";
-
 const Login = () => {
-  const usernameRef = useRef();
+  const loginRef = useRef();
   const errRef = useRef();
 
-  const [username, setUsername] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState("");
 
   useEffect(() => {
-    usernameRef.current.focus();
+   loginRef.current.focus();
   }, []);
 
   useEffect(() => {
     setErrMsg("");
-  }, [username, password]);
+  }, [login, password]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(LOGGED_URL,
-        JSON.stringify({ username, password }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCreditentials: true
-        }
+      axios.post(`http://127.0.0.1:8000/api/users/${id}`, {
+        login: login, 
+        password: password
+        } 
       );
-      setUsername("");
+      setLogin("");
       setPassword("");
+      console.log(error)
     } catch (error) { 
       if (!error?.response) 
         setErrMsg("No response");
-       else if (error.response?.status === 400) {
+       else if (error.response?.status === 500) {
         setErrMsg("Missing Username or Password")
       } else if (error.response?.status === 401) {
         setErrMsg("Unauthorized")
@@ -67,19 +63,19 @@ const Login = () => {
                 {errMsg}
               </p>
               <form onSubmit={handleSubmit}>
-                <label htmlFor="email" className="home__form--text2">
+                <label htmlFor="login" className="home__form--text2">
                   Username
                 </label>
                 <input
                   className="home__form--input"
                   type="text"
-                  id="username"
-                  placeholder="Username"
-                  ref={usernameRef}
-                  name="username"
+                  id="login"
+                  placeholder="Login"
+                  ref={loginRef}
+                  name="login"
                   autoComplete="off"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={login}
+                  onChange={(e) => setLogin(e.target.value)}
                   required
                 />
                 <label htmlFor="password" className="home__form--text2">
@@ -93,6 +89,7 @@ const Login = () => {
                   placeholder="password"
                   value={password}
                   autoComplete="off"
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
                 <p className="home__form--checkbox">
@@ -104,7 +101,7 @@ const Login = () => {
                 <button className="home__button">Login</button>
                 <p>
                   Don't have an account yet? Join the fun and
-                  <Link to="/Register" className="home__form--href">
+                  <Link to="/" className="home__form--href">
                     sign up!
                   </Link>
                 </p>

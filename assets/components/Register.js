@@ -9,19 +9,19 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const username_regex = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/;
+const login_regex = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/;
 const email_regex = /(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,9})/;
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
-const Register_Url = "/Register";
+
 
 const Register = () => {
-  const usernameRef = useRef();
+  const loginRef = useRef();
   const errRef = useRef();
 
-  const [username, setUsername] = useState("");
-  const [validUsername, setValidUsername] = useState(false);
-  const [usernameFocus, setUsernameFocus] = useState(false);
+  const [login, setLogin] = useState("");
+  const [validLogin, setValidLogin] = useState(false);
+  const [LoginFocus, setLoginFocus] = useState(false);
 
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
@@ -39,13 +39,13 @@ const Register = () => {
   const [success, setSuccess] = useState("");
 
   useEffect(() => {
-    usernameRef.current.focus();
+    loginRef.current.focus();
   }, []);
 
   useEffect(() => {
-    const result = username_regex.test(username);
-    setValidUsername(result);
-  }, [username]);
+    const result = login_regex.test(login);
+    setValidLogin(result);
+  }, [login]);
 
   useEffect(() => {
     const result = email_regex.test(email);
@@ -61,16 +61,11 @@ const Register = () => {
 
   useEffect(() => {
     setErrMsg("");
-  }, [username, password, email, matchPassword]);
-
-    useEffect(() => {
-      fetch(`http://127.0.0.1:8000/api/user`)
-       .then((response) => console.log(response));
-     }, []);
+  }, [login, password, email, matchPassword]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const v1 = username_regex.test(username);
+    const v1 = login_regex.test(login);
     const v2 = email_regex.test(email);
     const v3 = password_regex.test(password);
     if (!v1 || !v2 || !v3) {
@@ -78,13 +73,14 @@ const Register = () => {
       return;
     }
     try {
-      const response = await axios.post(Register_Url,
-        JSON.stringify({ username, email, password }),
-        {
-          headers: { "Content-Type": "application / json" },
-          withCreditentials: true
-        }
-      );
+      axios.post(`http://127.0.0.1:8000/api/users`, {
+      login: login, 
+      email: email, 
+      password: password
+      } 
+    
+      )
+       .then((response) => console.log(response.login));
       setSuccess(true);
     } catch (err) {
       if (!err?.response) {
@@ -123,33 +119,33 @@ const Register = () => {
               <form onSubmit={handleSubmit}>
                 <label htmlFor="name" className="home__form--text2">
                   First name
-                  <span className={validUsername ? "valid" : "hide"}>
+                  <span className={validLogin ? "valid" : "hide"}>
                     <FontAwesomeIcon icon={faCheck} />
                   </span>
-                  <span className={validUsername || !username ? "hide" : "invalid"}>
+                  <span className={validLogin || !login ? "hide" : "invalid"}>
                     <FontAwesomeIcon icon={faTimes} />
                   </span>
                 </label>
                 <input
                   className="home__form--input"
                   type="text"
-                  id="username"
-                  placeholder="Username"
-                  ref={usernameRef}
-                  name="username"
+                  id="login"
+                  placeholder="Login"
+                  ref={loginRef}
+                  name="login"
                   autoComplete="off"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  onBlur={() => setUsernameFocus(false)}
-                  onFocus={() => setUsernameFocus(true)}
-                  aria-invalid={validUsername ? "false" : "true"}
-                  aria-describedby="usernamenote"
+                  value={login}
+                  onChange={(e) => setLogin(e.target.value)}
+                  onBlur={() => setLoginFocus(false)}
+                  onFocus={() => setLoginFocus(true)}
+                  aria-invalid={validLogin ? "false" : "true"}
+                  aria-describedby="loginnote"
                   required
                 />
                 <p
-                  id="usernamenote"
+                  id="loginnote"
                   className={
-                    usernameFocus && username && !validUsername
+                    LoginFocus && login && !validLogin
                       ? "instructions"
                       : "offscreen"
                   }
@@ -243,7 +239,7 @@ const Register = () => {
                 </p>
 
                 <button
-                  disabled={!validUsername || !validPassword || !validEmail ? true : false}
+                  disabled={!validLogin || !validPassword || !validEmail ? true : false}
                   className="home__button"
                 >
                   Create my account

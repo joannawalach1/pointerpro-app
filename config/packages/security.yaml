@@ -20,8 +20,7 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            logout:
-                path: app_logout
+
             custom_authenticator: App\Security\AppAuthentificatorAuthenticator
                 # where to redirect after logout
                 # target: app_any_route
